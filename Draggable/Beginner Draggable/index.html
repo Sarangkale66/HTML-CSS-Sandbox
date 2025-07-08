@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="up">
+    <p class="draggable" draggable="true">1</p>
+    <p class="draggable" draggable="true">2</p>
+  </div>
+  <div class="container" id="down">
+    <p class="draggable" draggable="true">3</p>
+    <p class="draggable" draggable="true">4</p>
+  </div>
+  
+</body>
+<script>
+  let container=document.querySelectorAll(".container");
+  let draggable=document.querySelectorAll(".draggable");
+
+  draggable.forEach((val)=>{
+    val.addEventListener("dragstart",(e)=>{
+      let selected=e.target;
+      container.forEach((val)=>{
+        val.addEventListener("dragover",(e)=>{
+          e.preventDefault();
+        });
+        val.addEventListener("drop",(e)=>{
+          val.appendChild(selected);
+          selected=null;
+        })
+      })
+    })
+  })
+  
+
+</script>
+</html>

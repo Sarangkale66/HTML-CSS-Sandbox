@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div class="h-screen w-full bg-zinc-900">
+    <div class="parent relative top-0 left-0 w-full h-[700vh] bg-zinc-800">
+      <div class="w-full h-screen bg-red-500 sticky top-0 left-0 bg-zinc-500">
+        <canvas class="w-full h-screen" id="frame"></canvas>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" ></script>
+  <script>
+    const canvas=document.querySelector("canvas");
+    const parent=document.querySelector("#parent");
+    const context=canvas.getContext("2d");
+
+    const frames={
+      currentIndex:0,
+      maxIndex:382,
+    }
+
+    const Images=[];
+    let imageLoaded=0;
+    function PreloadImages(){
+      for(var i=1;i<=frames.maxIndex;i++){
+        const imageUrl=`./Frames/frame_${i.toString().padStart(4,0)}.jpg`;
+        const img=new Image();
+        img.src=imageUrl;
+        Images.push(img);
+        img.onload=()=>{
+          imageLoaded++;
+          if(imageLoaded==frames.maxIndex){
+            loadImage(frames.currentIndex);
+            startAnimation();
+          }
+        }
+      }
+    }
+    function loadImage(index){
+      if(index>=0 && index<=frames.maxIndex){
+        const img=Images[index];
+
+        canvas.width=window.innerWidth;
+        canvas.height=window.innerHeight;
+
+        const scaleX=canvas.width/img.width;
+        const scaleY=canvas.height/img.height;
+        const scale=Math.max(scaleX,scaleY);
+
+        const newWidth=img.width*scale;
+        const newHeight=img.height*scale;
+
+        const offsetX=(canvas.width-newWidth)/2;
+        const offsetY=(canvas.height-newHeight)/2;
+        
+        context.clearRect(0,0,canvas.innerWidth,canvas.innerHeight);
+        context.imageSmoothingEnabled=true;
+        context.imageSmoothingQuality="high";
+        context.drawImage(img,offsetX,offsetY,newWidth,newHeight);
+        frames.currentIndex=index;
+      }
+    }
+    
+    function startAnimation(){
+      const tl=gsap.timeline({
+        scrollTrigger:{
+          trigger:".parent",
+          start:"top top",
+          scrub: 2,
+        }
+      });
+      tl.to(frames,{
+          currentIndex:frames.maxIndex,
+          onUpdate:function(){
+            loadImage(Math.floor(frames.currentIndex));
+          },
+      });
+    }
+    PreloadImages();
+  </script>
+</body>
+</html>

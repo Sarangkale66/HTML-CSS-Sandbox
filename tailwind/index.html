@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/output.css">
+</head>
+<style>
+  @media (max-width:365px) {
+    #DP{
+      transform: translateY(-10%) translateX(-20%);
+    }
+  }
+</style>
+<body>
+  <div id="main" class="h-screen w-full ">
+    <nav class="w-full p-6 border-red-950
+    border-b-2  bg-[#ff2e2e] font-extrabold relative sm:flex sm:gap-5 sm:max-h-20 sm:items-center font-[cursive]">
+      <div id="navleft" class="flex gap-3 text-[#ffffff] mb-3 sm:w-fit sm:h-fit sm:mb-0">
+          <li class="list-none">
+            <a href="#">HOME</a>
+          </li>
+          <li class="list-none">
+            <a href="#">LINKS</a>
+          </li>
+          <li class="list-none">
+            <a href="#">MORE</a>
+          </li>
+          <li class="list-none">
+            <a href="#">CONTACTS</a>
+          </li>
+      </div> 
+      <div id="navright" class="sm:w-full">
+        <input type="text" class="px-3 py-2 w-1/2 rounded-sm " placeholder="Want to Find Somthing ! ">
+        <button class="px-3 py-2 bg-white rounded-sm text-[red] border-2">SEARCH</button>
+      </div>   
+      <div id="DP" class="h-12 w-12 rounded-full absolute top-[50%] right-[0%] translate-x-[-25%] translate-y-[-90%] sm:block sm:translate-x-[-20%] sm:translate-y-[-50%] ">
+        <img src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dp" class="object-cover w-full h-full rounded-full">
+      </div>
+    </nav>
+    <div id="page1" class="h-[88%] w-full bg-red-200 flex items-center justify-center text-[100px] text-white font-extrabold">
+      <h1>I am <span id="auto-scroll"></span></h1>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+  <script>
+    var type=new Typed("#auto-scroll",{
+      strings:["SARANG","Vishakha Omar"],
+      typeSpeed: 100,
+      backSpeed:100,
+      backDelay: 700,
+      smartBackspace: true,
+      loop:true
+    });
+  </script>
+</body>
+</html>

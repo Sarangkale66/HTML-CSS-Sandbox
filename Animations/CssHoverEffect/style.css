@@ -1,0 +1,41 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.752) ;
+}
+.list{
+  height: 35%;
+  width: 90%;
+  display: flex;
+  gap: 3px;
+}
+.items{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.items img{
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+  filter: brightness(0);
+}
+
+.list .items{ 
+  transform-style:preserve-3d;
+  transform: perspective(1000px);
+}
+.items :hover{
+  filter: brightness(1);
+  transform: translateZ(100px) ;
+}

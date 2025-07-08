@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+}
+body{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  background-color: cadetblue;
+}
+.main{
+  display: flex;
+  height: 30%;
+  width: 50%;
+  border: 2px solid darkblue;
+  transition: none;
+}
+.cards{
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  flex: 1;
+  transition: all 1s ease-in-out;
+}
+.cards:hover{
+ flex: 2;
+}

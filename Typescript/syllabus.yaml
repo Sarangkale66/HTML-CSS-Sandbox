@@ -1,0 +1,43 @@
+MANDATORY STUFF :
+likhana kaha hai code?
+chalaayenge kaise code?
+kya banane waale hai?
+
+INSTALLATION OF EXTENSION & REQUIREMENTS :
+node, vs-code, typescript global install
+extensions : ESlint, Javascript and TypeScript Nightly, Pretty TypeScript Errors 
+
+LETS Write Some Code: (script.ts)
+Basic Types
+- Numbers, String, Boolean
+- Arrays, Tuples
+- Any, Unknown, Never, Void
+- Enums
+
+Type Inference: (script.ts)
+
+Union and Intersection Types: (script.ts)
+
+Type Aliases: (script.ts)
+
+Interfaces: (script.ts)
+
+Classes: (classesAndObjects.ts)
+- Constuctors
+- Public Private and Protected
+- Readonly Properties
+- Getters and Setters
+
+Functions: (FunctionsAndTypes.ts)
+- Functions types
+- Optional and default Parameters
+
+Modules:
+- Exports and Imports (Modules.ts)
+
+Type Assertions: (FunctionsAndTypes.ts)
+
+Literal Types: (LiteralsAndItsTypes.ts)
+- String Literals
+- Boolean literals
+- Number Literals
